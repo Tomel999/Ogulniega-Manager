@@ -1,0 +1,48 @@
+{
+  "app": {
+    "title": "Ogulniega Manager",
+    "subtitle": "Wybierz platformę do pobierania modów lub zarządzaj lokalnymi plikami."
+  },
+  "main": {
+    "mody": "Mody",
+    "launcher": "Launcher",
+    "extra": "Extra",
+    "settings": "Ustawienia"
+  },
+  "extra": {
+    "title": "Extra",
+    "shaderpacks": "Shaderpaki",
+    "resourcepacks": "Resourcepaki"
+  },
+  "launcher": {
+    "title": "Launcher",
+    "download": "Pobierz pliki",
+    "java": "Zmień dystrybucję Java",
+    "reinstall": "Przeinstaluj",
+    "reinstallAll": "Przeinstaluj wszystko",
+    "reinstallLibs": "Przeinstaluj biblioteki",
+    "reinstallAssets": "Przeinstaluj assety",
+    "reinstallMods": "Przeinstaluj mody"
+  },
+  "mods": {
+    "title": "Mody",
+    "download": "Pobierz",
+    "disable": "Wyłącz",
+    "compatibility": "Sprawdź kompatybilność",
+    "duplicates": "Sprawdź duplikaty"
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "language": "Język"
+  },
+  "download": {
+    "title": "Pobierz Mody",
+    "searchPlaceholder": "Szukaj modów...",
+    "searching": "Szukanie...",
+    "selectVersion": "Wybierz wersję gry",
+    "continue": "Pobierz więcej"
+  },
+  "common": {
+    "back": "Wstecz"
+  }
+}

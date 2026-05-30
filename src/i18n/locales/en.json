@@ -1,0 +1,48 @@
+{
+  "app": {
+    "title": "Ogulniega Manager",
+    "subtitle": "Select a platform to download mods or manage local files."
+  },
+  "main": {
+    "mody": "Mods",
+    "launcher": "Launcher",
+    "extra": "Extra",
+    "settings": "Settings"
+  },
+  "extra": {
+    "title": "Extra",
+    "shaderpacks": "Shaderpacks",
+    "resourcepacks": "Resourcepacks"
+  },
+  "launcher": {
+    "title": "Launcher",
+    "download": "Download Files",
+    "java": "Change Java Distro",
+    "reinstall": "Reinstall",
+    "reinstallAll": "Reinstall All",
+    "reinstallLibs": "Reinstall Libraries",
+    "reinstallAssets": "Reinstall Assets",
+    "reinstallMods": "Reinstall Mods"
+  },
+  "mods": {
+    "title": "Mods",
+    "download": "Download",
+    "disable": "Disable",
+    "compatibility": "Check Compatibility",
+    "duplicates": "Check Duplicates"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language"
+  },
+  "download": {
+    "title": "Download Mods",
+    "searchPlaceholder": "Search mods...",
+    "searching": "Searching...",
+    "selectVersion": "Select game version",
+    "continue": "Download More"
+  },
+  "common": {
+    "back": "Back"
+  }
+}

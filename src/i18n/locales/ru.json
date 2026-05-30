@@ -1,0 +1,48 @@
+{
+  "app": {
+    "title": "Ogulniega Manager",
+    "subtitle": "Выберите платформу для загрузки модов или управляйте локальными файлами."
+  },
+  "main": {
+    "mody": "Моды",
+    "launcher": "Лаунчер",
+    "extra": "Дополнительно",
+    "settings": "Настройки"
+  },
+  "extra": {
+    "title": "Дополнительно",
+    "shaderpacks": "Шейдерпаки",
+    "resourcepacks": "Ресурспаки"
+  },
+  "launcher": {
+    "title": "Лаунчер",
+    "download": "Скачать файлы",
+    "java": "Сменить дистрибутив Java",
+    "reinstall": "Переустановить",
+    "reinstallAll": "Переустановить всё",
+    "reinstallLibs": "Переустановить библиотеки",
+    "reinstallAssets": "Переустановить ассеты",
+    "reinstallMods": "Переустановить моды"
+  },
+  "mods": {
+    "title": "Моды",
+    "download": "Скачать",
+    "disable": "Отключить",
+    "compatibility": "Проверить совместимость",
+    "duplicates": "Проверить дубликаты"
+  },
+  "settings": {
+    "title": "Настройки",
+    "language": "Язык"
+  },
+  "download": {
+    "title": "Скачать моды",
+    "searchPlaceholder": "Поиск модов...",
+    "searching": "Поиск...",
+    "selectVersion": "Выберите версию",
+    "continue": "Скачать ещё"
+  },
+  "common": {
+    "back": "Назад"
+  }
+}
