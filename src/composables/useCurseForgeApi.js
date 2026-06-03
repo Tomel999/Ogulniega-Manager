@@ -25,6 +25,7 @@ export function useCurseForgeApi() {
     const params = new URLSearchParams({
       gameId: '432',
       classId: '6',
+      modLoaderType: '4',
       searchFilter: query || '',
       pageSize: String(pageSize),
       index: String(index),
@@ -32,7 +33,6 @@ export function useCurseForgeApi() {
       sortOrder: 'desc',
     })
     if (gameVersion) params.set('gameVersion', gameVersion)
-    if (gameVersion) params.set('modLoaderType', '4')
 
     const res = await fetch(`${BASE_URL}/mods/search?${params}`, { headers: getHeaders() })
     if (!res.ok) throw new Error(`CurseForge search failed: ${res.status}`)
@@ -49,5 +49,21 @@ export function useCurseForgeApi() {
     return json.data
   }
 
-  return { searchMods, hasApiKey, getMod }
+  async function getModFiles(modId, gameVersion) {
+    if (!hasApiKey()) throw new Error('CurseForge API key not set')
+
+    const params = new URLSearchParams({
+      modLoaderType: '4',
+      pageSize: '50',
+      index: '0',
+    })
+    if (gameVersion) params.set('gameVersion', gameVersion)
+
+    const res = await fetch(`${BASE_URL}/mods/${modId}/files?${params}`, { headers: getHeaders() })
+    if (!res.ok) throw new Error(`CurseForge mod files fetch failed: ${res.status}`)
+    const json = await res.json()
+    return json.data || []
+  }
+
+  return { searchMods, hasApiKey, getMod, getModFiles }
 }

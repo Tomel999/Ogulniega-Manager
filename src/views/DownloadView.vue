@@ -301,16 +301,17 @@ async function downloadMod(gameVersion) {
           .map(d => d.project_id)
       }
     } else {
-      const result = await curseForge.searchMods(selectedMod.value.title, baseVersion)
-      const modData = (result.data || []).find(m => m.id === selectedMod.value.project_id)
-      if (!modData || !modData.latestFiles || modData.latestFiles.length === 0) {
+      const modData = await curseForge.getMod(selectedMod.value.project_id)
+      const files = await curseForge.getModFiles(selectedMod.value.project_id, baseVersion)
+      if (!files || files.length === 0) {
         error.value = `No ${baseVersion} file found for this mod.`
         state.value = 'error'
         return
       }
-      const file = modData.latestFiles.find(f =>
-        f.gameVersions && f.gameVersions.some(v => v.toLowerCase() === 'fabric')
-      ) || modData.latestFiles[0]
+      const file = files.find(f =>
+        f.gameVersions && f.gameVersions.includes(baseVersion) &&
+        f.gameVersions.some(v => v.toLowerCase() === 'fabric')
+      ) || files[0]
       downloadUrl = file.downloadUrl
       filename = file.fileName
 
