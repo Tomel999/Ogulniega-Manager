@@ -24,6 +24,7 @@ export function useCurseForgeApi() {
 
     const params = new URLSearchParams({
       gameId: '432',
+      classId: '6',
       searchFilter: query || '',
       pageSize: String(pageSize),
       index: String(index),

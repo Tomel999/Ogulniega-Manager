@@ -7,6 +7,7 @@ function buildFacets(gameVersion) {
   const facets = []
   if (gameVersion) facets.push([`versions:${gameVersion}`])
   facets.push(['categories:fabric'])
+  facets.push(['project_type:mod'])
   return facets
 }
 
