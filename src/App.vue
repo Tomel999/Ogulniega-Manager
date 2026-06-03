@@ -7,6 +7,7 @@ import ExtraView from "./views/ExtraView.vue";
 import LauncherView from "./views/LauncherView.vue";
 import ReinstallView from "./views/ReinstallView.vue";
 import DownloadView from "./views/DownloadView.vue";
+import DisableView from "./views/DisableView.vue";
 
 const history = ref(['main']);
 
@@ -33,6 +34,7 @@ function goBack() {
     <LauncherView v-else-if="currentView() === 'launcher'" @navigate="goTo" @back="goBack" />
     <ReinstallView v-else-if="currentView() === 'reinstall'" @back="goBack" />
     <DownloadView v-else-if="currentView() === 'download'" @back="goBack" />
+    <DisableView v-else-if="currentView() === 'disable'" @back="goBack" />
   </main>
 </template>
 

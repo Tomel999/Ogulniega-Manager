@@ -42,6 +42,22 @@
     "selectVersion": "Wybierz wersję gry",
     "continue": "Pobierz więcej"
   },
+  "disable": {
+    "title": "Wyłącz mody",
+    "loading": "Ładowanie wersji...",
+    "loadingMods": "Ładowanie modów...",
+    "noVersions": "Nie znaleziono wersji gry.",
+    "noMods": "Nie znaleziono modów w tej wersji.",
+    "noResults": "Brak modów pasujących do wyszukiwania.",
+    "selectVersion": "Wybierz wersję gry",
+    "searchPlaceholder": "Szukaj modów...",
+    "clickHint": "Kliknij aktywny mod: mody z preinstalled/ są wyłączane, pozostałe są usuwane. Kliknij wyłączony mod, aby go usunąć.",
+    "activeLabel": "Aktywny",
+    "disabledLabel": "Wyłączony",
+    "confirmRemove": "Usunąć {filename}? Plik zostanie trwale usunięty.",
+    "removed": "{filename} usunięto",
+    "disabled": "{filename} → {id}"
+  },
   "common": {
     "back": "Wstecz"
   }

@@ -42,6 +42,22 @@
     "selectVersion": "Выберите версию",
     "continue": "Скачать ещё"
   },
+  "disable": {
+    "title": "Отключить моды",
+    "loading": "Загрузка версий...",
+    "loadingMods": "Загрузка модов...",
+    "noVersions": "Версии игры не найдены.",
+    "noMods": "Моды не найдены в этой версии.",
+    "noResults": "Нет модов по запросу.",
+    "selectVersion": "Выберите версию игры",
+    "searchPlaceholder": "Поиск модов...",
+    "clickHint": "Нажмите активный мод: моды из preinstalled/ отключаются, остальные удаляются. Нажмите отключённый мод, чтобы удалить.",
+    "activeLabel": "Активен",
+    "disabledLabel": "Отключён",
+    "confirmRemove": "Удалить {filename}? Файл будет удалён без возможности восстановления.",
+    "removed": "{filename} удалён",
+    "disabled": "{filename} → {id}"
+  },
   "common": {
     "back": "Назад"
   }

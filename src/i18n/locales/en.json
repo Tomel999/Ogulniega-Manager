@@ -42,6 +42,22 @@
     "selectVersion": "Select game version",
     "continue": "Download More"
   },
+  "disable": {
+    "title": "Disable Mods",
+    "loading": "Loading versions...",
+    "loadingMods": "Loading mods...",
+    "noVersions": "No game versions found.",
+    "noMods": "No mods found in this version.",
+    "noResults": "No mods match your search.",
+    "selectVersion": "Select game version",
+    "searchPlaceholder": "Search mods...",
+    "clickHint": "Click an active mod to act: preinstalled/ mods are disabled, others are deleted. Click a disabled mod to remove it.",
+    "activeLabel": "Active",
+    "disabledLabel": "Disabled",
+    "confirmRemove": "Remove {filename}? The file will be deleted permanently.",
+    "removed": "{filename} removed",
+    "disabled": "{filename} → {id}"
+  },
   "common": {
     "back": "Back"
   }

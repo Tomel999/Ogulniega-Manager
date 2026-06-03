@@ -12,7 +12,7 @@ defineEmits(['back', 'navigate']);
       <NavigationCard :label="$t('mods.download')" @click="$emit('navigate', 'download')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </NavigationCard>
-      <NavigationCard :label="$t('mods.disable')" :disabled="true">
+      <NavigationCard :label="$t('mods.disable')" @click="$emit('navigate', 'disable')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
       </NavigationCard>
       <NavigationCard :label="$t('mods.compatibility')" :disabled="true">
