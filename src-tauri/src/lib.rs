@@ -72,14 +72,65 @@ struct ModInfo {
     is_disabled: bool,
 }
 
+#[derive(Serialize)]
+struct DuplicateGroup {
+    mod_id: String,
+    preinstalled: Vec<ModInfo>,
+    regular: Vec<ModInfo>,
+}
+
+fn extract_mod_id_from_json(json: &serde_json::Value) -> Option<String> {
+    if let Some(id) = json.get("id").and_then(|v| v.as_str()) {
+        let trimmed = id.trim();
+        if !trimmed.is_empty() {
+            return Some(trimmed.to_string());
+        }
+    }
+    if let Some(id) = json
+        .get("quilt_loader")
+        .and_then(|q| q.get("id"))
+        .and_then(|v| v.as_str())
+    {
+        let trimmed = id.trim();
+        if !trimmed.is_empty() {
+            return Some(trimmed.to_string());
+        }
+    }
+    None
+}
+
 fn read_fabric_mod_id(jar_path: &Path) -> Option<String> {
     let file = std::fs::File::open(jar_path).ok()?;
     let mut archive = ZipArchive::new(file).ok()?;
-    let mut entry = archive.by_name("fabric.mod.json").ok()?;
-    let mut content = String::new();
-    entry.read_to_string(&mut content).ok()?;
-    let json: serde_json::Value = serde_json::from_str(&content).ok()?;
-    json.get("id")?.as_str().map(|s| s.to_string())
+
+    let count = archive.len();
+    let candidates: Vec<String> = (0..count)
+        .filter_map(|i| archive.by_index(i).ok().map(|f| f.name().to_string()))
+        .filter(|n| {
+            *n == "fabric.mod.json"
+                || *n == "quilt.mod.json"
+                || n.ends_with("/fabric.mod.json")
+                || n.ends_with("/quilt.mod.json")
+        })
+        .collect();
+
+    for name in candidates {
+        let Ok(mut entry) = archive.by_name(&name) else {
+            continue;
+        };
+        let mut content = String::new();
+        if entry.read_to_string(&mut content).is_err() {
+            continue;
+        }
+        let Ok(json) = serde_json::from_str::<serde_json::Value>(&content) else {
+            continue;
+        };
+        if let Some(id) = extract_mod_id_from_json(&json) {
+            return Some(id);
+        }
+    }
+
+    None
 }
 
 fn parse_disabled_id(id: &str) -> Option<u32> {
@@ -257,6 +308,80 @@ fn delete_mod_file(
     Ok(())
 }
 
+fn collect_mods_with_ids(dir_path: &Path, sub_path: &str) -> Vec<(String, ModInfo)> {
+    let mut result: Vec<(String, ModInfo)> = Vec::new();
+    if !dir_path.exists() {
+        return result;
+    }
+
+    let entries = match std::fs::read_dir(dir_path) {
+        Ok(e) => e,
+        Err(_) => return result,
+    };
+
+    for entry in entries.filter_map(|e| e.ok()) {
+        if !entry.file_type().map(|t| t.is_file()).unwrap_or(false) {
+            continue;
+        }
+        let filename = entry.file_name().to_string_lossy().to_string();
+        if !filename.to_lowercase().ends_with(".jar") {
+            continue;
+        }
+        let jar_path = entry.path();
+        let Some(id) = read_fabric_mod_id(&jar_path) else {
+            continue;
+        };
+        if parse_disabled_id(&id).is_some() {
+            continue;
+        }
+        result.push((
+            id,
+            ModInfo {
+                filename,
+                sub_path: sub_path.to_string(),
+                is_disabled: false,
+            },
+        ));
+    }
+
+    result
+}
+
+#[tauri::command]
+fn find_duplicate_mods(game_version: String) -> Result<Vec<DuplicateGroup>, String> {
+    let mods_dir = get_mods_dir()?;
+    let regular_path = PathBuf::from(format!("{}/{}", mods_dir, game_version));
+    let preinstalled_path = PathBuf::from(format!("{}/{}/preinstalled", mods_dir, game_version));
+
+    let regular_mods = collect_mods_with_ids(&regular_path, "");
+    let preinstalled_mods = collect_mods_with_ids(&preinstalled_path, "preinstalled");
+
+    let mut id_map: std::collections::HashMap<String, (Vec<ModInfo>, Vec<ModInfo>)> =
+        std::collections::HashMap::new();
+
+    for (id, info) in regular_mods {
+        id_map.entry(id).or_insert_with(|| (Vec::new(), Vec::new())).0.push(info);
+    }
+
+    for (id, info) in preinstalled_mods {
+        id_map.entry(id).or_insert_with(|| (Vec::new(), Vec::new())).1.push(info);
+    }
+
+    let mut duplicates: Vec<DuplicateGroup> = id_map
+        .into_iter()
+        .filter(|(_, (regular, preinstalled))| regular.len() + preinstalled.len() > 1)
+        .map(|(mod_id, (regular, preinstalled))| DuplicateGroup {
+            mod_id,
+            preinstalled,
+            regular,
+        })
+        .collect();
+
+    duplicates.sort_by(|a, b| a.mod_id.cmp(&b.mod_id));
+
+    Ok(duplicates)
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -269,7 +394,8 @@ pub fn run() {
             write_mod_file,
             list_mods,
             disable_mod,
-            delete_mod_file
+            delete_mod_file,
+            find_duplicate_mods
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

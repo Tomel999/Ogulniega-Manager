@@ -8,6 +8,7 @@ import LauncherView from "./views/LauncherView.vue";
 import ReinstallView from "./views/ReinstallView.vue";
 import DownloadView from "./views/DownloadView.vue";
 import DisableView from "./views/DisableView.vue";
+import DuplicatesView from "./views/DuplicatesView.vue";
 
 const history = ref(['main']);
 
@@ -35,6 +36,7 @@ function goBack() {
     <ReinstallView v-else-if="currentView() === 'reinstall'" @back="goBack" />
     <DownloadView v-else-if="currentView() === 'download'" @back="goBack" />
     <DisableView v-else-if="currentView() === 'disable'" @back="goBack" />
+    <DuplicatesView v-else-if="currentView() === 'duplicates'" @back="goBack" />
   </main>
 </template>
 

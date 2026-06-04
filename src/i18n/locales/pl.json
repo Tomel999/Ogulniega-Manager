@@ -57,6 +57,23 @@
     "removed": "{filename} usunięto",
     "disabled": "{filename} → {id}"
   },
+  "duplicates": {
+    "title": "Sprawdź duplikaty",
+    "loading": "Ładowanie wersji...",
+    "noVersions": "Nie znaleziono wersji gry.",
+    "selectVersion": "Wybierz wersję gry",
+    "loadingDuplicates": "Skanowanie duplikatów...",
+    "noDuplicates": "Nie znaleziono duplikatów w {version}.",
+    "noResults": "Brak duplikatów pasujących do wyszukiwania.",
+    "searchPlaceholder": "Szukaj po id moda lub nazwie pliku...",
+    "hint": "Te mody pojawiają się więcej niż raz (to samo id w fabric.mod.json). Kliknij dowolną kopię, aby ją usunąć. Pozostały plik będzie nadal działać.",
+    "preinstalled": "Preinstalowane",
+    "regular": "Folder modów",
+    "removeAction": "Usuń",
+    "countLabel": "{count} plików",
+    "confirmRemove": "Usunąć {filename}? Plik zostanie trwale usunięty.",
+    "removed": "{filename} usunięto"
+  },
   "common": {
     "back": "Wstecz"
   }

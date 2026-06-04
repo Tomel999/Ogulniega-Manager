@@ -57,6 +57,23 @@
     "removed": "{filename} удалён",
     "disabled": "{filename} → {id}"
   },
+  "duplicates": {
+    "title": "Проверить дубликаты",
+    "loading": "Загрузка версий...",
+    "noVersions": "Версии игры не найдены.",
+    "selectVersion": "Выберите версию игры",
+    "loadingDuplicates": "Сканирование дубликатов...",
+    "noDuplicates": "Дубликаты не найдены в {version}.",
+    "noResults": "Нет дубликатов по запросу.",
+    "searchPlaceholder": "Поиск по id мода или имени файла...",
+    "hint": "Эти моды появляются больше одного раза (одинаковый id в fabric.mod.json). Нажмите на любую копию, чтобы удалить её. Оставшийся файл продолжит работать.",
+    "preinstalled": "Предустановленные",
+    "regular": "Папка модов",
+    "removeAction": "Удалить",
+    "countLabel": "{count} файлов",
+    "confirmRemove": "Удалить {filename}? Файл будет удалён без возможности восстановления.",
+    "removed": "{filename} удалён"
+  },
   "common": {
     "back": "Назад"
   }
