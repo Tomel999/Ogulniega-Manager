@@ -25,10 +25,9 @@
     "reinstallMods": "Переустановить моды"
   },
   "mods": {
-    "title": "Моды",
+    "title": "Mods",
     "download": "Скачать",
     "disable": "Отключить",
-    "compatibility": "Проверить совместимость",
     "duplicates": "Проверить дубликаты"
   },
   "settings": {

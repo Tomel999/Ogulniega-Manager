@@ -25,10 +25,9 @@
     "reinstallMods": "Przeinstaluj mody"
   },
   "mods": {
-    "title": "Mody",
+    "title": "Mods",
     "download": "Pobierz",
     "disable": "Wyłącz",
-    "compatibility": "Sprawdź kompatybilność",
     "duplicates": "Sprawdź duplikaty"
   },
   "settings": {
