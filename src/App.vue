@@ -6,6 +6,7 @@ import ModsView from "./views/ModsView.vue";
 import ExtraView from "./views/ExtraView.vue";
 import LauncherView from "./views/LauncherView.vue";
 import ReinstallView from "./views/ReinstallView.vue";
+import AlternativeDownloadView from "./views/AlternativeDownloadView.vue";
 import DownloadView from "./views/DownloadView.vue";
 import DisableView from "./views/DisableView.vue";
 import DuplicatesView from "./views/DuplicatesView.vue";
@@ -34,6 +35,7 @@ function goBack() {
     <ExtraView v-else-if="currentView() === 'extra'" @back="goBack" />
     <LauncherView v-else-if="currentView() === 'launcher'" @navigate="goTo" @back="goBack" />
     <ReinstallView v-else-if="currentView() === 'reinstall'" @back="goBack" />
+    <AlternativeDownloadView v-else-if="currentView() === 'alternativeDownload'" @back="goBack" />
     <DownloadView v-else-if="currentView() === 'download'" @back="goBack" />
     <DisableView v-else-if="currentView() === 'disable'" @back="goBack" />
     <DuplicatesView v-else-if="currentView() === 'duplicates'" @back="goBack" />

@@ -22,7 +22,30 @@
     "reinstallAll": "Переустановить всё",
     "reinstallLibs": "Переустановить библиотеки",
     "reinstallAssets": "Переустановить ассеты",
-    "reinstallMods": "Переустановить моды"
+    "reinstallMods": "Переустановить моды",
+    "alternativeDownload": "Альтернативное скачивание модов"
+  },
+  "alternativeDownload": {
+    "title": "Альтернативное скачивание модов",
+    "description": "Скачивает моды из этого репозитория (папка versions/) и релизов GitHub, сохраняя их в локальные папки preinstalled.",
+    "selectVersion": "Выберите версию, для которой хотите скачать моды:",
+    "versionsCount": "версий",
+    "loadingVersions": "Загрузка доступных версий с GitHub...",
+    "loadError": "Не удалось загрузить версии из репозитория.",
+    "noVersionsInRepo": "В репозитории пока нет папки versions/.",
+    "noModsFound": "Не найдено подходящих модов для выбранной версии.",
+    "start": "Начать загрузку",
+    "preparing": "Получение списка модов с GitHub...",
+    "currentFile": "Загрузка",
+    "fromRelease": "Релиз GitHub",
+    "fromRepo": "Репозиторий",
+    "fileProgress": "Текущий файл",
+    "overallProgress": "Всего",
+    "allSuccess": "Готово! Загружено {count} модов.",
+    "allFailed": "Загрузка не удалась. Моды не установлены.",
+    "partialSuccess": "Завершено с ошибками. Загружено {ok}, не удалось {fail}.",
+    "retry": "Повторить",
+    "pickAnother": "Выбрать другую версию"
   },
   "mods": {
     "title": "Mods",

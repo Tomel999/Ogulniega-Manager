@@ -15,7 +15,11 @@
         { "url": "https://cdn.modrinth.com/**" },
         { "url": "https://mediafilez.forgecdn.net/**" },
         { "url": "https://edge.forgecdn.net/**" },
-        { "url": "https://*.forgecdn.net/**" }
+        { "url": "https://*.forgecdn.net/**" },
+        { "url": "https://api.github.com/**" },
+        { "url": "https://raw.githubusercontent.com/**" },
+        { "url": "https://objects.githubusercontent.com/**" },
+        { "url": "https://github.com/**" }
       ]
     }
   ]

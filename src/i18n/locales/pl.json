@@ -22,7 +22,30 @@
     "reinstallAll": "Przeinstaluj wszystko",
     "reinstallLibs": "Przeinstaluj biblioteki",
     "reinstallAssets": "Przeinstaluj assety",
-    "reinstallMods": "Przeinstaluj mody"
+    "reinstallMods": "Przeinstaluj mody",
+    "alternativeDownload": "Alternatywne pobieranie modów"
+  },
+  "alternativeDownload": {
+    "title": "Alternatywne pobieranie modów",
+    "description": "Pobiera mody z tego repozytorium (folder versions/) i wydań na GitHubie, zapisując je do lokalnych folderów preinstalled.",
+    "selectVersion": "Wybierz wersję, dla której chcesz pobrać mody:",
+    "versionsCount": "wersji",
+    "loadingVersions": "Ładowanie dostępnych wersji z GitHuba...",
+    "loadError": "Nie udało się załadować wersji z repozytorium.",
+    "noVersionsInRepo": "Repozytorium nie zawiera jeszcze folderu versions/.",
+    "noModsFound": "Nie znaleziono pasujących modów dla wybranej wersji.",
+    "start": "Rozpocznij pobieranie",
+    "preparing": "Pobieranie listy modów z GitHuba...",
+    "currentFile": "Pobieranie",
+    "fromRelease": "Wydanie na GitHubie",
+    "fromRepo": "Repozytorium",
+    "fileProgress": "Bieżący plik",
+    "overallProgress": "Ogólnie",
+    "allSuccess": "Gotowe! Pobrano {count} modów.",
+    "allFailed": "Pobieranie nie powiodło się. Żadne mody nie zostały zainstalowane.",
+    "partialSuccess": "Zakończono z błędami. Pobrano {ok}, nie udało się {fail}.",
+    "retry": "Ponów",
+    "pickAnother": "Wybierz inną wersję"
   },
   "mods": {
     "title": "Mods",

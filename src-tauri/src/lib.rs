@@ -65,6 +65,21 @@ fn write_mod_file(game_version: String, filename: String, data: Vec<u8>) -> Resu
     std::fs::write(dest_path, &data).map_err(|e| e.to_string())
 }
 
+#[tauri::command]
+fn write_preinstalled_mod_file(
+    game_version: String,
+    filename: String,
+    data: Vec<u8>,
+) -> Result<(), String> {
+    let mods_dir = get_mods_dir()?;
+    let dest = format!("{}/{}/preinstalled/{}", mods_dir, game_version, filename);
+    let dest_path = Path::new(&dest);
+    if let Some(parent) = dest_path.parent() {
+        std::fs::create_dir_all(parent).map_err(|e| e.to_string())?;
+    }
+    std::fs::write(dest_path, &data).map_err(|e| e.to_string())
+}
+
 #[derive(Serialize)]
 struct ModInfo {
     filename: String,
@@ -392,6 +407,7 @@ pub fn run() {
             list_game_versions,
             list_directory_files,
             write_mod_file,
+            write_preinstalled_mod_file,
             list_mods,
             disable_mod,
             delete_mod_file,

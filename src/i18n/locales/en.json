@@ -22,7 +22,30 @@
     "reinstallAll": "Reinstall All",
     "reinstallLibs": "Reinstall Libraries",
     "reinstallAssets": "Reinstall Assets",
-    "reinstallMods": "Reinstall Mods"
+    "reinstallMods": "Reinstall Mods",
+    "alternativeDownload": "Alternative mod download"
+  },
+  "alternativeDownload": {
+    "title": "Alternative mod download",
+    "description": "Downloads mods from this repository (versions/ folder) and GitHub Releases, saving them to your local preinstalled folders.",
+    "selectVersion": "Select a version to download mods for:",
+    "versionsCount": "versions",
+    "loadingVersions": "Loading available versions from GitHub...",
+    "loadError": "Could not load versions from the repository.",
+    "noVersionsInRepo": "The repository has no versions/ folder yet.",
+    "noModsFound": "No matching mods were found for the selected version.",
+    "start": "Start download",
+    "preparing": "Fetching mod list from GitHub...",
+    "currentFile": "Downloading",
+    "fromRelease": "GitHub Release",
+    "fromRepo": "Repository",
+    "fileProgress": "Current file",
+    "overallProgress": "Overall",
+    "allSuccess": "Done! {count} mods downloaded.",
+    "allFailed": "Download failed. No mods were installed.",
+    "partialSuccess": "Done with errors. {ok} downloaded, {fail} failed.",
+    "retry": "Retry",
+    "pickAnother": "Pick another version"
   },
   "mods": {
     "title": "Mods",
