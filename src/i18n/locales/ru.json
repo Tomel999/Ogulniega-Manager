@@ -97,6 +97,25 @@
     "confirmRemove": "Удалить {filename}? Файл будет удалён без возможности восстановления.",
     "removed": "{filename} удалён"
   },
+  "java": {
+    "title": "Дистрибутивы Java",
+    "loading": "Загрузка информации о Java...",
+    "installNew": "НАСТРОЙКА",
+    "installNewHero": "Установить Java",
+    "installNewHint": "Версии Java для вашего лаунчера. Выберите сборку, установите — папка названа так, как ожидает лаунчер.",
+    "launcherEmpty": "Профили java_name не найдены в launcher.json — лаунчер может быть временно недоступен.",
+    "distribution": "Дистрибутив",
+    "profile": "Профиль лаунчера",
+    "install": "Установить",
+    "fetchingRelease": "Определяю URL загрузки...",
+    "retry": "Повторить",
+    "phase": {
+      "starting": "Подготовка...",
+      "downloading": "Загрузка...",
+      "extracting": "Распаковка...",
+      "done": "Готово"
+    }
+  },
   "common": {
     "back": "Назад"
   }

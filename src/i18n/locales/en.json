@@ -97,6 +97,25 @@
     "confirmRemove": "Remove {filename}? The file will be deleted permanently.",
     "removed": "{filename} removed"
   },
+  "java": {
+    "title": "Java Distributions",
+    "loading": "Loading Java information...",
+    "installNew": "SETUP",
+    "installNewHero": "Install Java",
+    "installNewHint": "Java versions for your launcher. Pick a build, install — folder name matches what the launcher expects.",
+    "launcherEmpty": "No java_name profiles were found in launcher.json — the launcher may be temporarily unavailable.",
+    "distribution": "Distribution",
+    "profile": "Launcher profile",
+    "install": "Install",
+    "fetchingRelease": "Resolving download URL...",
+    "retry": "Retry",
+    "phase": {
+      "starting": "Preparing...",
+      "downloading": "Downloading...",
+      "extracting": "Extracting...",
+      "done": "Done"
+    }
+  },
   "common": {
     "back": "Back"
   }

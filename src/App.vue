@@ -10,6 +10,7 @@ import AlternativeDownloadView from "./views/AlternativeDownloadView.vue";
 import DownloadView from "./views/DownloadView.vue";
 import DisableView from "./views/DisableView.vue";
 import DuplicatesView from "./views/DuplicatesView.vue";
+import JavaView from "./views/JavaView.vue";
 
 const history = ref(['main']);
 
@@ -39,6 +40,7 @@ function goBack() {
     <DownloadView v-else-if="currentView() === 'download'" @back="goBack" />
     <DisableView v-else-if="currentView() === 'disable'" @back="goBack" />
     <DuplicatesView v-else-if="currentView() === 'duplicates'" @back="goBack" />
+    <JavaView v-else-if="currentView() === 'java'" @back="goBack" />
   </main>
 </template>
 

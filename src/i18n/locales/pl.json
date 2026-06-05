@@ -97,6 +97,25 @@
     "confirmRemove": "Usunąć {filename}? Plik zostanie trwale usunięty.",
     "removed": "{filename} usunięto"
   },
+  "java": {
+    "title": "Dystrybucje Java",
+    "loading": "Ładowanie informacji o Java...",
+    "installNew": "KONFIGURACJA",
+    "installNewHero": "Zainstaluj Java",
+    "installNewHint": "Wersje Java dla Twojego launchera. Wybierz kompilację, zainstaluj — folder nazwany tak, jak oczekuje launcher.",
+    "launcherEmpty": "Nie znaleziono profili java_name w launcher.json — launcher może być chwilowo niedostępny.",
+    "distribution": "Dystrybucja",
+    "profile": "Profil launchera",
+    "install": "Zainstaluj",
+    "fetchingRelease": "Wyliczam adres pobierania...",
+    "retry": "Ponów",
+    "phase": {
+      "starting": "Przygotowywanie...",
+      "downloading": "Pobieranie...",
+      "extracting": "Wypakowywanie...",
+      "done": "Gotowe"
+    }
+  },
   "common": {
     "back": "Wstecz"
   }

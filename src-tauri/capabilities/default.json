@@ -19,7 +19,10 @@
         { "url": "https://api.github.com/**" },
         { "url": "https://raw.githubusercontent.com/**" },
         { "url": "https://objects.githubusercontent.com/**" },
-        { "url": "https://github.com/**" }
+        { "url": "https://github.com/**" },
+        { "url": "https://ogulniega.com/**" },
+        { "url": "https://cdn.azul.com/**" },
+        { "url": "https://aka.ms/**" }
       ]
     }
   ]
