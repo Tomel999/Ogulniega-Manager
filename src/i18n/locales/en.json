@@ -102,7 +102,7 @@
     "loading": "Loading Java information...",
     "installNew": "SETUP",
     "installNewHero": "Install Java",
-    "installNewHint": "Java versions for your launcher. Pick a build, install — folder name matches what the launcher expects.",
+    "installNewHint": "Java versions for your launcher. Pick a distro, install — folder name matches what the launcher expects.",
     "launcherEmpty": "No java_name profiles were found in launcher.json — the launcher may be temporarily unavailable.",
     "distribution": "Distribution",
     "profile": "Launcher profile",
