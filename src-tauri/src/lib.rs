@@ -554,6 +554,86 @@ struct LauncherProfilesResponse {
     profiles: Vec<JavaProfile>,
 }
 
+#[derive(Serialize, Clone, Debug)]
+struct ClientModEntry {
+    filename: String,
+    url: String,
+    size: u64,
+}
+
+#[derive(Serialize, Clone, Debug)]
+struct ClientModsManifest {
+    source: String,
+    version: String,
+    mods: Vec<ClientModEntry>,
+}
+
+fn push_client_mod(item: &serde_json::Value, out: &mut Vec<ClientModEntry>) {
+    let Some(filename) = item.get("filename").and_then(|v| v.as_str()) else {
+        return;
+    };
+    let Some(mod_url) = item.get("url").and_then(|v| v.as_str()) else {
+        return;
+    };
+    let size = item.get("size").and_then(|v| v.as_u64()).unwrap_or(0);
+    out.push(ClientModEntry {
+        filename: filename.to_string(),
+        url: mod_url.to_string(),
+        size,
+    });
+}
+
+fn fetch_client_mods_manifest(version: String) -> Result<ClientModsManifest, String> {
+    let url = format!(
+        "https://ogulniega.com/files/client_version/{}.json",
+        version
+    );
+    let response = http_agent()
+        .get(&url)
+        .set("User-Agent", USER_AGENT)
+        .call()
+        .map_err(|e| format!("Client mods manifest request failed: {}", e))?;
+    let status = response.status();
+    let body = response
+        .into_string()
+        .map_err(|e| format!("Client mods manifest body read failed: {}", e))?;
+    if status != 200 {
+        return Err(format!(
+            "Client mods manifest request returned status {}: {}",
+            status, body
+        ));
+    }
+    let value: serde_json::Value = serde_json::from_str(&body)
+        .map_err(|e| format!("Client mods manifest parse failed: {}", e))?;
+
+    let mut mods: Vec<ClientModEntry> = Vec::new();
+
+    if let Some(arr) = value.as_array() {
+        for item in arr {
+            push_client_mod(item, &mut mods);
+        }
+    } else if let Some(arr) = value.get("mods").and_then(|v| v.as_array()) {
+        for item in arr {
+            push_client_mod(item, &mut mods);
+        }
+    } else {
+        return Err("Client mods manifest has unexpected format".to_string());
+    }
+
+    Ok(ClientModsManifest {
+        source: url,
+        version,
+        mods,
+    })
+}
+
+#[tauri::command]
+async fn get_client_mods_manifest(version: String) -> Result<ClientModsManifest, String> {
+    tauri::async_runtime::spawn_blocking(move || fetch_client_mods_manifest(version))
+        .await
+        .map_err(|e| format!("Client mods manifest task panicked: {}", e))?
+}
+
 fn fetch_launcher_profiles() -> Result<LauncherProfilesResponse, String> {
     const CACHE_TTL: Duration = Duration::from_secs(300);
     static CACHE: OnceLock<std::sync::Mutex<(Instant, LauncherProfilesResponse)>> = OnceLock::new();
@@ -1349,8 +1429,11 @@ fn copy_dir_recursive(src: &Path, dst: &Path) -> std::io::Result<()> {
         if ft.is_dir() {
             copy_dir_recursive(&src_path, &dst_path)?;
         } else if ft.is_symlink() {
-            let target = std::fs::read_link(&src_path)?;
-            std::os::unix::fs::symlink(&target, &dst_path)?;
+            let _target = std::fs::read_link(&src_path)?;
+            #[cfg(unix)]
+            std::os::unix::fs::symlink(&_target, &dst_path)?;
+            #[cfg(windows)]
+            std::fs::copy(&src_path, &dst_path)?;
         } else {
             std::fs::copy(&src_path, &dst_path)?;
             #[cfg(unix)]
@@ -1658,6 +1741,7 @@ pub fn run() {
             get_platform_info,
             get_java_path,
             get_launcher_profiles,
+            get_client_mods_manifest,
             list_distributions,
             list_java_installations,
             get_java_release,

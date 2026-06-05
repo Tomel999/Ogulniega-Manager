@@ -376,7 +376,7 @@ function resetSearch() {
 
 <template>
   <div class="view">
-    <BackButton @click="$emit('back')" />
+    <BackButton v-if="state !== 'selecting-version'" @click="$emit('back')" />
 
     <h2 class="section-title" v-show="state === 'idle'">{{ $t('download.title') }}</h2>
 
