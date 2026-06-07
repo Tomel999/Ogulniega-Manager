@@ -74,10 +74,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
       - name: Install system dependencies
         run: |
           dnf install -y \
@@ -88,7 +84,13 @@ jobs:
             librsvg2-devel \
             xdotool-devel \
             rpm-build \
-            curl
+            curl \
+            unzip
+
+      - name: Install Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "$HOME/.bun/bin" >> $GITHUB_PATH
 
       - uses: dtolnay/rust-toolchain@stable
 
