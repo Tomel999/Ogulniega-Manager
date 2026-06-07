@@ -53,6 +53,7 @@ jobs:
       - uses: swatinem/rust-cache@v2
         with:
           workspaces: './src-tauri -> target'
+          prefix-key: ${{ matrix.label }}
 
       - run: bun install
 
@@ -100,6 +101,7 @@ jobs:
       - uses: swatinem/rust-cache@v2
         with:
           workspaces: './src-tauri -> target'
+          prefix-key: fedora
 
       - run: bun install
 
@@ -132,6 +134,7 @@ jobs:
       - uses: swatinem/rust-cache@v2
         with:
           workspaces: './src-tauri -> target'
+          prefix-key: windows
 
       - run: bun install
 
