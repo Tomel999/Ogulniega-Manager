@@ -34,16 +34,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
-      - uses: dtolnay/rust-toolchain@stable
-
-      - uses: swatinem/rust-cache@v2
-        with:
-          workspaces: './src-tauri -> target'
-
       - name: Install system dependencies
         run: |
           sudo apt-get update
@@ -53,6 +43,16 @@ jobs:
             librsvg2-dev \
             patchelf \
             libxdo-dev
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: './src-tauri -> target'
 
       - run: bun install
 
