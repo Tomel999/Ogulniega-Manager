@@ -82,7 +82,6 @@ jobs:
             openssl-devel \
             libappindicator-gtk3-devel \
             librsvg2-devel \
-            xdotool-devel \
             rpm-build \
             curl \
             unzip
