@@ -18,11 +18,6 @@
     "title": "Launcher",
     "download": "Pobierz pliki",
     "java": "Zmień dystrybucję Java",
-    "reinstall": "Przeinstaluj",
-    "reinstallAll": "Przeinstaluj wszystko",
-    "reinstallLibs": "Przeinstaluj biblioteki",
-    "reinstallAssets": "Przeinstaluj assety",
-    "reinstallMods": "Przeinstaluj mody",
     "alternativeDownload": "Alternatywne pobieranie modów"
   },
   "alternativeDownload": {
@@ -46,29 +41,6 @@
     "partialSuccess": "Zakończono z błędami. Pobrano {ok}, nie udało się {fail}.",
     "retry": "Ponów",
     "pickAnother": "Wybierz inną wersję"
-  },
-  "reinstallMods": {
-    "title": "Przeinstaluj mody",
-    "chooseSource": "Wybierz źródło pobierania modów:",
-    "sourceOgulniega": "Official",
-    "sourceGithub": "Alternative",
-    "loadingVersions": "Ładowanie dostępnych wersji...",
-    "loadError": "Nie udało się załadować wersji ze źródła.",
-    "noVersions": "Brak dostępnych wersji dla tego źródła.",
-    "selectVersion": "Wybierz wersję, dla której chcesz zainstalować mody:",
-    "versionsCount": "wersji",
-    "currentFile": "Pobieranie",
-    "fromRelease": "Wydanie na GitHubie",
-    "fromRepo": "Repozytorium",
-    "fromManifest": "manifest ogulniega.com",
-    "fileProgress": "Bieżący plik",
-    "overallProgress": "Ogólnie",
-    "allSuccess": "Gotowe! Pobrano {count} modów.",
-    "allFailed": "Pobieranie nie powiodło się. Żadne mody nie zostały zainstalowane.",
-    "partialSuccess": "Zakończono z błędami. Pobrano {ok}, nie udało się {fail}.",
-    "retry": "Ponów",
-    "pickAnother": "Wybierz inną wersję",
-    "changeSource": "Zmień źródło"
   },
   "mods": {
     "title": "Mods",
